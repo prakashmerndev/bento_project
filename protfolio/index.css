@@ -1,0 +1,391 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+main {
+  padding: 30px;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: 50px 360px 160px 200px 155px;
+  grid-template-rows: 100px 2fr 2fr 140px;
+
+  grid-template-areas:
+    "left-sub-menu left-big-container heading-section heading-section heading-section"
+    "left-sub-menu left-big-container bird-container bird-container right-center-1"
+    "left-sub-menu left-big-container bird-container bird-container right-center-2"
+    "left-sub-menu left-big-container right-bottom-1 right-bottom-2 right-bottom-3";
+
+  gap: 15px;
+  align-self: center;
+  justify-self: center;
+  margin-left: 100px;
+
+}
+
+.left-sub-menu {
+  grid-area: left-sub-menu;
+  background-color: rgb(233, 227, 227);
+  padding:20px 10px;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+border-radius: 20px;
+  gap: 50px;
+  
+}
+.left-sub-menu a {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  color: #282626;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+cursor: pointer;
+text-decoration: none;
+}
+.left-big-container {
+  grid-area: left-big-container;
+  position: relative;
+  height: 100%;
+  background: radial-gradient(circle at 0 0, transparent 10px, orangered 120px)
+    no-repeat 60px 10px / 10px 10px; /* andar ka concave curve */
+}
+
+/* neeche wala main body (top-left se 20px neeche shuru) */
+.left-big-container::before {
+  content: "";
+  position: absolute;
+  inset: 50px 0 0 0;
+  background: #8184d2;
+  border-radius: 10px;
+}
+
+/* upar uthta hua hissa (70px ke baad) */
+.left-big-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 120px;
+  right: 0;
+  height: 60px;
+
+  background: #8184d2;
+  border-radius: 10px 10px 0 0;
+}
+
+.heading-section {
+  padding: 10px;
+  grid-area: heading-section;
+  text-align: center;
+  background-color: #fff;
+  
+}
+span .corner{
+  font-size: 60px;
+  font-weight: 500;
+  margin-left: 0;
+}
+.heading-section h1{
+  font-size: 85px;
+  font-weight: 900;
+  letter-spacing: 8px;
+}
+.bird-container {
+  grid-area: bird-container;
+  background-color: blueviolet;
+  color: #fff;
+}
+
+.right-center-1 {
+  grid-area: right-center-1;
+  background-color: #A8DAD7;
+  border-radius: 20px 20px 0px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: -7.4px;
+}
+
+.right-center-2 {
+  margin-top: -7.5px;
+  grid-area: right-center-2;
+  background-color: #8F70BF;
+  border-radius: 0px 0px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.right-bottom-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+  grid-area: right-bottom-1;
+border-radius: 30px;
+overflow: hidden;
+background-image: url(https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR89gUF4c0UGsjiFuY_aWd4KY5j0S76dCwm2QYZ-Wqi_3sLvc29);
+background-size: cover;      /* poore box ko cover karega */
+  background-position: center; /* image beech se center hogi */
+  background-repeat: no-repeat;
+
+}
+.right-bottom-1 p{
+    margin-top: 80px;
+    color: #FFFFFF;
+    font-size: 15px;
+}
+.right-bottom-1 img{
+  height: 100%;
+  width: 100%;
+background-size: contain;
+}
+.right-bottom-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: right-bottom-2;
+  background-color: #000000;
+  border-radius: 20px 0px 0px 20px;
+
+}
+.right-bottom-2 img{
+ width: 100px;
+ height: 100px; 
+ 
+}
+.right-bottom-3 {
+  margin-left: -38px;
+  grid-area: right-bottom-3;
+  background-color: #FEC267;
+  border-radius:20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+    gap: 2px;
+}
+.right-bottom-3 p{
+  font-size: 11px;
+
+}
+.about-section {
+  position: relative;
+  width: 300px;
+  height: 450px;
+}
+
+/* Main purple card */
+.about-card {
+  position: absolute;
+  left: 25px;
+  top: 0;
+
+  width: 245px;
+  height: 450px;
+
+  background: #8585d4;
+
+  border-radius: 13px;
+
+  overflow: hidden;
+}
+
+/*
+    Top-right cut / angled shape
+*/
+.about-card::before {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  width: 80px;
+  height: 55px;
+
+  background: #f5f5f5;
+
+  clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* About Me text */
+.about-title {
+  position: absolute;
+  top: 16px;
+  left: 0px;
+  color: #222;
+  font-size: 19px;
+  font-weight: 500;
+  z-index: 5;
+}
+
+/* Profile image circle */
+.profile-circle {
+  position: absolute;
+  top: 95px;
+  left: 120px;
+  width: 200px;
+  height: 200px;
+  outline: 4px solid white; /* bahar wala white ring */
+  outline-offset: 12px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 40px;
+  background: #d891eb;
+}
+
+/* Image */
+.about-section-imag {
+  position: absolute;
+  top: 18%;
+  left: 34%;
+  width: 200px;
+  height: 230px;
+  object-fit: cover;
+  transform: rotate(0deg);
+  z-index: 9;
+}
+
+/* Name area */
+.name {
+  position: absolute;
+  left: 20px;
+  bottom: 65px;
+  color: white;
+}
+
+.name span {
+  display: block;
+
+  font-size: 25px;
+  font-weight: 300;
+
+  margin-bottom: 2px;
+}
+
+.name strong {
+  display: block;
+
+  font-size: 34px;
+  line-height: 0.95;
+
+  font-weight: 500;
+}
+
+/* Email */
+.email {
+  position: absolute;
+
+  left: 20px;
+  bottom: 15px;
+
+  color: white;
+
+  font-size: 12px;
+  letter-spacing: 0.3px;
+
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.7);
+
+  padding-bottom: 5px;
+}
+
+/* Circular badge */
+.badge {
+  position: absolute;
+
+  right: 10px;
+  bottom: 12px;
+
+  width: 55px;
+  height: 55px;
+
+  border-radius: 50%;
+
+  background: #111;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+
+  transform: rotate(-12deg);
+}
+
+/* Badge content */
+.badge-inner {
+  width: 43px;
+  height: 43px;
+
+  border: 1px dashed white;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  font-size: 6px;
+  line-height: 1.3;
+}
+.bird-container{
+  height: 100%;
+  width: 100%;
+border-radius: 20px;
+overflow: hidden;
+
+}
+.bird-container img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+
+
+/* In cards me corner icon lagana hai */
+.right-center-1,
+.right-center-2,
+.right-bottom-1,
+.bird-container,
+.heading-section,
+.right-bottom-3 {
+  position: relative;   /* icon ko card ke andar rakhne ke liye zaroori */
+}
+
+.right-center-1::after,
+.bird-container::after,
+.heading-section::after,
+.right-center-2::after,
+.right-bottom-1::after,
+.right-bottom-3::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  width: 8px;
+  height: 8px;
+  border-top: 1.5px solid currentColor;    /* text ke color ke hisab se */
+  border-right: 1.5px solid currentColor;
+}
